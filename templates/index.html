@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Главная</a>
+        <a href="{{ url_for('building_stats') }}">По типам</a>
+        <a href="{{ url_for('country_stats') }}">По странам</a>
+        <a href="{{ url_for('year_stats') }}">По годам</a>
+        <a href="{{ url_for('buildings_by_years') }}">Здания 2000-2018</a>
+    </nav>
+    <div class="container">
+        <h1>{{ title }}</h1>
+        
+        {# Определяем макрос для вывода таблицы #}
+        {% macro render_table(headers, rows) %}
+        <div class="table-wrapper">
+            <table class="buildings-table">
+                <thead>
+                    <tr>
+                        {% for header in headers %}
+                        <th>{{ header }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                    <tr>
+                        {% for value in row %}
+                        <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endmacro %}
+
+        {# Используем макрос для вывода таблицы зданий #}
+        {{ render_table(buildings_head, buildings_body) }}
+
+        <div class="stats">
+            Всего зданий: {{ buildings_body|length }}
+        </div>
+    </div>
+</body>
+</html>

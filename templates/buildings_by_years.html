@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navigation">
+    <a href="{{ url_for('index') }}" class="back-button">← На главную</a>
+    </div>
+
+    <h1>{{ title }}</h1>
+    
+    {% if buildings %}
+    <table border="1">
+        <thead>
+            <tr>
+                {% for header in headers %}
+                <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for building in buildings %}
+            <tr>
+                <td>{{ building.Название }}</td>
+                <td>{{ building.Тип }}</td>
+                <td>{{ building.Страна }}</td>
+                <td>{{ building.Город }}</td>
+                <td>{{ building.Год }}</td>
+                <td>{{ building.Высота }} м</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Нет данных для отображения</p>
+    {% endif %}
+</body>
+</html>

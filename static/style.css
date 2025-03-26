@@ -1,0 +1,96 @@
+/* Стили для таблицы */
+.table-wrapper {
+    margin: 20px 0;
+    overflow-x: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.buildings-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+.buildings-table th {
+    background-color: #3498db;
+    color: white;
+    text-align: left;
+    padding: 12px 15px;
+}
+
+.buildings-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.buildings-table tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.buildings-table tr:hover {
+    background-color: #e3f2fd;
+}
+
+/* Дополнительные классы для макроса */
+.scrollable-table {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.striped-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.stats-table th {
+    background-color: #3498db;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.stats-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.stats-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.stats-table tr:hover {
+    background-color: #e3f2fd;
+}
+.country-flag {
+    width: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.stats-table td:nth-child(1) {
+    font-weight: 500;
+}
+
+/* Стили для кнопки "Назад" */
+.navigation {
+    margin: 20px 0;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #2980b9;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navigation">
+    <a href="{{ url_for('index') }}" class="back-button">← На главную</a>
+    </div>
+    <div class="container">
+        <h1>{{ title }}</h1>
+
+        <table class="stats-table">
+            <thead>
+                <tr>
+                    {% for header in headers %}
+                    <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for building in buildings %}
+                <tr>
+                    <td>{{ building.Тип_здания }}</td>
+                    <td>{{ building.Количество }}</td>
+                    <td>{{ "%.1f"|format(building.Максимальная_высота) }} м</td>
+                    <td>{{ "%.1f"|format(building.Минимальная_высота) }} м</td>
+                    <td>{{ "%.1f"|format(building.Средняя_высота) }} м</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
